@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class E1 {
 
-    public boolean isLeapYear(int year) {
+    public static boolean isLeapYear(int year) {
         return year % 4 == 0 || (year % 400 == 0 && year % 100 != 0);
     }
 
@@ -16,8 +16,9 @@ public class E1 {
 
         int year = scanner.nextInt();
 
-        E1 e1 = new E1();
+//        E1 e1 = new E1();
 
-        System.out.println(year + " is leap year: " + e1.isLeapYear(year));
+//        System.out.println(year + " is leap year: " + e1.isLeapYear(year));
+        System.out.println(year + " is leap year: " + isLeapYear(year));
     }
 }

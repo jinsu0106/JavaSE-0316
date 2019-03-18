@@ -7,9 +7,9 @@ public class StaticTest {
         Mankind tom = new Mankind("Tom", 19);
 
         tom.setAge(20);
-       out.println(tom.getName());
-       out.println(tom.getAge());
-        
+        out.println(tom.getName());
+        out.println(tom.getAge());
+
 //        tom.setEarth("Tom 在天软种了一棵树。");
         Mankind.setEarth("Tom 在天软种了一棵树。");
 
@@ -26,12 +26,15 @@ public class StaticTest {
 //        Math math = new Math();
 //                   static int = 0;
         System.out.println(Math.PI);
-        System.out.println(Math.pow(2,3));
+        System.out.println(Math.pow(2, 3));
     }
 }
 
 
 class Mankind { // 人类
+
+    private static final long HUMAN_AMOUNT = 7000000000L; // 常量
+
     private String name;
     private int age;
 
@@ -39,6 +42,7 @@ class Mankind { // 人类
     private static String earth; // 地球
 
     public Mankind(String name, int age) {
+//        human_amount = 7000000000L;
         this.name = name;
         this.age = age;
     }

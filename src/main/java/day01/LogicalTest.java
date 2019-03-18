@@ -1,4 +1,4 @@
-package demo;
+package day01;
 
 public class LogicalTest {
 

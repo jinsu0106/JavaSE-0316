@@ -8,7 +8,7 @@ public class ListTest {
         // Shift + Ctrl + Alt + U
 //        ArrayList
 
-        ArrayList<String> strings = new ArrayList<>();
+        List<String> strings = new ArrayList<>();
 
         strings.add("hello");
         strings.add("hi");

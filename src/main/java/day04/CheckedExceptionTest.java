@@ -22,7 +22,9 @@ public class CheckedExceptionTest {
         RandomAccessFile randomAccessFile = new RandomAccessFile(filePath, "rw");
 
         // ?
-        // checked exception   是难以避免的问题
-        // unchecked exception 是程序的 bug
+        // checked exception   是难以避免的问题             受检异常 检查异常 非运行时异常
+        // unchecked exception 是程序的 bug                 非受检异常 非检查异常 运行时异常
+
+        
     }
 }

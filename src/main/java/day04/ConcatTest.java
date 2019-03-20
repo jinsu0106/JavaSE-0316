@@ -36,5 +36,29 @@ public class ConcatTest<T> { // T: Type Parameters
         boolean b2 = false;
         ConcatTest<Boolean> c3 = new ConcatTest<>();
         c3.concat(b1, b2);
+        
+
+        Integer integer = new Integer(100);
+
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(Integer.MAX_VALUE);
+
+        System.out.println(Long.MIN_VALUE);
+        System.out.println(Long.MAX_VALUE);
+
+        int i = 100;
+        String s = String.valueOf(i); // i + "";
+
+        String s100 = "100";
+        int i100 = Integer.parseInt(s100);
+
+        System.out.println(s);
+        System.out.println(i100 + 1);
+
+        String s12345 = "123.45";
+        double d = Double.parseDouble(s12345);
+
+        Boolean.parseBoolean("true");
+
     }
 }

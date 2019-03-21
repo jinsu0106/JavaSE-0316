@@ -5,16 +5,16 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- *  输入流
- *  Reader -> FileReader -> method
+ * 输入流
+ * Reader -> FileReader -> method
  */
 public class InputStreamTest {
 
     private static final String NAME = "src/main/java/day05/InputStreamTest.java";
 
     public static void main(String[] args) {
-        try {
-            InputStream inputStream = new FileInputStream(NAME);
+        // try with resources
+        try (InputStream inputStream = new FileInputStream(NAME)) {
             int i = inputStream.read();
             while (i != -1) {
                 System.out.print((char) i);

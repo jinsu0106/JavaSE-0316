@@ -33,7 +33,7 @@ public class Douban {
     }
 
     private static void downloadPage(String pageUrl) throws IOException {
-        URL url = new URL(DOUBAN_URL);
+        URL url = new URL(pageUrl);
         InputStream inputStream = url.openStream();
         // 字节流转换为字符流
         Reader reader = new InputStreamReader(inputStream);

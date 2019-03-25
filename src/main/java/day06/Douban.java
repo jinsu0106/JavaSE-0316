@@ -12,9 +12,18 @@ import java.net.URL;
 public class Douban extends Thread {
     private static final String DOUBAN_URL = "https://book.douban.com/tag/小说?start=";
     private static int counter;
+    private int page;
 
-    public static void main(String[] args) throws IOException {
-//        long begin = System.currentTimeMillis();
+    private int getPage() {
+        return page;
+    }
+
+    private void setPage(int page) {
+        this.page = page;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        long begin = System.currentTimeMillis();
 //        for (int i = 0; i < 50; i++) {
 //            int start = i * 20;
 //            System.out.println("download page: " + (i + 1));
@@ -23,22 +32,34 @@ public class Douban extends Thread {
 
         for (int i = 0; i < 5; i++) {
             Douban t = new Douban();
+            t.setPage(10 * i);
             t.start();
+            t.join();
         }
 
-//        System.out.println(System.currentTimeMillis() - begin);
+        System.out.println("total time: " + (System.currentTimeMillis() - begin) + " ms.");
     }
 
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getId() + " running...");
+
+        for (int i = getPage(); i < getPage() + 10; i++) {
+            int start = i * 20;
+            System.out.println("download page: " + (i + 1));
+            try {
+                downloadPage(DOUBAN_URL + start);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private static void download(String imgUrl) throws IOException {
         URL url = new URL(imgUrl);
         try (
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(url.openStream());
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream("data/" + (++counter) + ".jpg"))
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream("data1/" + (++counter) + ".jpg"))
         ) {
             int i;
             while ((i = bufferedInputStream.read()) != -1) {

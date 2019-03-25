@@ -9,16 +9,29 @@ import java.net.URL;
 /**
  * mutithreading?
  */
-public class Douban {
+public class Douban extends Thread {
     private static final String DOUBAN_URL = "https://book.douban.com/tag/小说?start=";
     private static int counter;
 
     public static void main(String[] args) throws IOException {
-        for (int i = 0; i < 50; i++) {
-            int start = i * 20;
-            System.out.println("download page: " + (i + 1));
-            downloadPage(DOUBAN_URL + start);
+//        long begin = System.currentTimeMillis();
+//        for (int i = 0; i < 50; i++) {
+//            int start = i * 20;
+//            System.out.println("download page: " + (i + 1));
+//            downloadPage(DOUBAN_URL + start);
+//        }
+
+        for (int i = 0; i < 5; i++) {
+            Douban t = new Douban();
+            t.start();
         }
+
+//        System.out.println(System.currentTimeMillis() - begin);
+    }
+
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getId() + " running...");
     }
 
     private static void download(String imgUrl) throws IOException {

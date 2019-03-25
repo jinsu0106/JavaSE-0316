@@ -6,12 +6,15 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * mutithreading?
+ */
 public class Douban {
     private static final String DOUBAN_URL = "https://book.douban.com/tag/小说?start=";
     private static int counter;
 
     public static void main(String[] args) throws IOException {
-        for (int i = 0; i < 383; i++) {
+        for (int i = 0; i < 50; i++) {
             int start = i * 20;
             System.out.println("download page: " + (i + 1));
             downloadPage(DOUBAN_URL + start);
